@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chunky Badger - The Art Adventure Begins</title>
+    <meta name="description"
+        content="Learn to draw with Chunky Badger's step-by-step guides. Screen-free fun for kids ages 5-10.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Rounded chunky font for headings (Fredoka) and clean sans for body (Nunito) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header / Navigation (Transparent, Minimal) -->
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="Pictures/Logo/ChunkyBadger-Peach-landscape.png" alt="Chunky Badger" class="logo-img">
+        </div>
+
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Our Books</a></li>
+                <li><a href="#art-club" class="btn btn-primary btn-sm">Sign up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Immersive, Scroll Track) -->
+    <section id="hero" class="hero-track">
+        <div class="hero-sticky">
+            <canvas id="hero-animation"></canvas>
+            <div class="hero-overlay">
+                <div class="container hero-content-left">
+                    <h1 class="hero-title reveal">Unleash your<br>inner artist</h1>
+                    <p class="hero-subtitle reveal delay-200">The fun, friendly, and screen-free way to learn to draw -
+                        in just 6 simple steps!</p>
+                    <div class="reveal delay-400">
+                        <a href="#art-club" class="btn btn-primary bounce-hover">Start your art adventure</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator reveal delay-600">
+                <span>Scroll</span>
+                <div class="line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Minimalist Stacked) -->
+    <section id="about" class="section-padding bg-cream">
+        <div class="container narrow text-center">
+            <h2 class="section-label reveal">About Chunky Badger</h2>
+            <h3 class="big-statement reveal">Making Learning to Draw Feel Like Play</h3>
+
+            <div class="text-split-layout reveal">
+                <p class="body-text">At Chunky Badger, we believe every child has the potential to be a budding artist.
+                    Our books
+                    are designed for beginners and parents looking for creative, screen-free fun.</p>
+                <br>
+                <p class="body-text">We don't just show you the finished picture; we guide you through the process. Our
+                    <strong>"6 Simple Steps"</strong> method breaks down complex subjects into easy-to-follow shapes.
+                    We provide plenty of space to practice, shade, and get creative right inside each book.
+                </p>
+                <br>
+                <p class="body-text">It’s not just a book; it’s an art adventure that builds confidence with every page
+                    turn!</p>
+            </div>
+        </div>
+        <!-- Removed functionality of 4 floating parallax boxes as requested -->
+    </section>
+
+    <!-- Lead Magnet (Email Signup) -->
+    <section id="art-club" class="section-padding bg-vintage-berry text-white">
+        <div class="container narrow text-center">
+            <h2 class="hero-title reveal" style="font-size: 3rem;">Join the Club & Get Free Goodies!</h2>
+            <p class="hero-subtitle reveal">Want more drawing fun? Sign up below to access our exclusive treasure trove
+                of free bonus colouring pages, art tutorials, and more!</p>
+
+
+            <form class="minimal-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+                style="flex-direction: column; gap: 20px; align-items: center; margin-top: 30px;">
+                <input type="text" name="name" placeholder="First Name" required
+                    style="width: 100%; border-bottom: 2px solid rgba(255,255,255,0.5); padding: 10px;">
+                <input type="email" name="email" placeholder="Email Address" required
+                    style="width: 100%; border-bottom: 2px solid rgba(255,255,255,0.5); padding: 10px;">
+                <button type="submit" class="btn btn-primary"
+                    style="background: white; color: var(--secondary-berry); margin-left:0;">Send Me My Free Art
+                    Pack!</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Our Books (Product Showcase) -->
+    <section id="products" class="section-padding bg-white">
+        <div class="container">
+            <div class="section-header reveal text-center">
+                <h2 class="section-label">Our Books</h2>
+                <h3 class="big-statement" style="font-size: 2.5rem;">Now Available: Learn to Draw: British Animals
+                </h3>
+                <p class="body-text">Discover the charm of British wildlife! This step-by-step guide helps young artists
+                    master over 45 woodland creatures, farm favorites, and seaside friends.</p>
+            </div>
+
+            <div class="book-feature-grid reveal">
+                <!-- Book Image -->
+                <div class="book-main-image">
+                    <img src="Pictures/Mockup/British-Animals-Over-Mockup.png" alt="British Animals Guide"
+                        style="width:100%; height:auto; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-radius: 10px;">
+                </div>
+
+                <!-- Book Details -->
+                <div class="book-details">
+                    <div class="detail-block">
+                        <h4>Inside you’ll find:</h4>
+                        <ul class="styled-list">
+                            <li><strong>Woodland Creatures:</strong> From curious Foxes to cuddly Badgers.</li>
+                            <li><strong>Farm Favourites:</strong> Playful Pigs, Sheep, and the majestic Highland Cow.
+                            </li>
+                            <li><strong>Seaside Friends:</strong> Draw the perfect Puffin, Seagull, and even an Otter!
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-block">
+                        <h4>Why Parents Love It:</h4>
+                        <ul class="styled-list">
+                            <li><strong>Easy to Follow:</strong> Every animal is broken down into 6 visual steps—no
+                                reading required!</li>
+                            <li><strong>All-in-One:</strong> Includes practice space and tips on how to start with basic
+                                shapes.</li>
+                            <li><strong>Creative Freedom:</strong> Once the outline is done, we encourage kids to add
+                                colour to their masterpiece!</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-block">
+                        <a href="https://amazon.co.uk" target="_blank" class="btn btn-primary">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section id="coming-soon" class="section-padding bg-cream">
+        <div class="container narrow text-center">
+            <h2 class="section-label reveal">The Adventure Doesn’t Stop Here!</h2>
+            <p class="body-text reveal">We are busy in the studio creating the next collection of "Learn to Draw" books.
+                Keep your pencils sharp and look out for these exciting new titles coming soon:</p>
+
+            <!-- Coming Soon List -->
+            <ul class="coming-soon-list reveal">
+                <li>Dinosaurs</li>
+                <li>African Animals</li>
+                <li>Australian Animals</li>
+                <li>Bugs</li>
+                <li>Madagascan Animals</li>
+            </ul>
+
+            <p class="reveal highlight">Subscribe to get notified (and get early-bird discounts) when
+                these launch!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer bg-black text-white">
+        <div class="container flex-footer">
+            <div class="footer-brand">
+                <span>&copy; Chunky Badger 2026. All rights reserved.</span>
+            </div>
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
