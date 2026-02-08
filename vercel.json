@@ -16,6 +16,10 @@
         {
             "src": "src/**/*",
             "use": "@vercel/static"
+        },
+        {
+            "src": "Pictures/**/*",
+            "use": "@vercel/static"
         }
     ]
 }
