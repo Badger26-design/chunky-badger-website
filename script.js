@@ -1,4 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Email Signup Form Submission ---
+    const signupForm = document.getElementById('signup-form');
+    if (signupForm) {
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const originalButtonText = signupForm.querySelector('button').innerText;
+            const button = signupForm.querySelector('button');
+            const emailInput = document.getElementById('email');
+            const nameInput = document.getElementById('name');
+
+            const email = emailInput.value;
+            const name = nameInput.value;
+
+            // Simple loading state
+            button.innerText = 'Sending...';
+            button.disabled = true;
+
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, name })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    button.innerText = 'Success! Welcome to the club!';
+                    button.classList.add('btn-success'); // Optional helper class?
+                    signupForm.reset();
+                } else {
+                    button.innerText = 'Something went wrong. Try again.';
+                    console.error('Signup error:', data);
+                    setTimeout(() => {
+                        button.innerText = originalButtonText;
+                        button.disabled = false;
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                button.innerText = 'Error. Please try again later.';
+                setTimeout(() => {
+                    button.innerText = originalButtonText;
+                    button.disabled = false;
+                }, 3000);
+            }
+        });
+    }
     // Smooth Scroll for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
