@@ -9,6 +9,12 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Email is required' });
     }
 
+    // DEBUG: Check if key exists
+    if (!process.env.MAILERLITE_API_KEY) {
+        console.error('Configuration Error: MAILERLITE_API_KEY is missing');
+        return res.status(500).json({ error: 'Server Config Error: Missing API Key' });
+    }
+
     try {
         const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
             method: 'POST',
