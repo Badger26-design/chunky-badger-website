@@ -10,17 +10,23 @@ export default async function handler(req, res) {
     }
 
     // DEBUG: Check if key exists
-    if (!process.env.MAILERLITE_API_KEY) {
+    const apiKey = process.env.MAILERLITE_API_KEY;
+
+    if (!apiKey) {
         console.error('Configuration Error: MAILERLITE_API_KEY is missing');
         return res.status(500).json({ error: 'Server Config Error: Missing API Key' });
     }
+
+    console.log(`API Key present. Length: ${apiKey.length}`);
+    console.log(`API Key start: ${apiKey.substring(0, 5)}...`);
+    console.log(`API Key end: ...${apiKey.substring(apiKey.length - 5)}`);
 
     try {
         const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.MAILERLITE_API_KEY}`,
+                'Authorization': `Bearer ${apiKey.trim()}`,
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
