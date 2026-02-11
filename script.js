@@ -29,23 +29,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     button.innerText = 'Success! Welcome to the club!';
-                    button.classList.add('btn-success'); // Optional helper class?
+                    button.classList.add('btn-success');
                     signupForm.reset();
                 } else {
-                    button.innerText = 'Something went wrong. Try again.';
+                    const errorMsg = data.error || 'Unknown error';
+                    // Show error in button or alert
                     console.error('Signup error:', data);
+                    button.innerText = `Error: ${errorMsg}`;
+                    // Reset after longer timeout so they can see it
                     setTimeout(() => {
                         button.innerText = originalButtonText;
                         button.disabled = false;
-                    }, 3000);
+                    }, 5000);
                 }
             } catch (error) {
                 console.error('Network error:', error);
-                button.innerText = 'Error. Please try again later.';
+                button.innerText = 'Network Error. Check console.';
                 setTimeout(() => {
                     button.innerText = originalButtonText;
                     button.disabled = false;
-                }, 3000);
+                }, 5000);
             }
         });
     }

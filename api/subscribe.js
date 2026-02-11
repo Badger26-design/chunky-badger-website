@@ -26,9 +26,17 @@ export default async function handler(req, res) {
         });
 
         if (!response.ok) {
-            const errorData = await response.json();
-            console.error('MailerLite Error:', errorData);
-            return res.status(response.status).json({ error: 'Failed to subscribe' });
+            const errorText = await response.text();
+            console.error('MailerLite Error Status:', response.status);
+            console.error('MailerLite Error Body:', errorText);
+
+            // Try to parse JSON error if possible
+            try {
+                const errorJson = JSON.parse(errorText);
+                return res.status(response.status).json({ error: errorJson.message || 'Failed to subscribe' });
+            } catch (e) {
+                return res.status(response.status).json({ error: errorText || 'Failed to subscribe' });
+            }
         }
 
         const data = await response.json();
