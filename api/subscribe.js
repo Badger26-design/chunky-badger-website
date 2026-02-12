@@ -1,3 +1,5 @@
+import https from 'https';
+
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
@@ -9,7 +11,6 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Email is required' });
     }
 
-    // DEBUG: Check if key exists
     const apiKey = process.env.MAILERLITE_API_KEY;
 
     if (!apiKey) {
@@ -17,45 +18,64 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Server Config Error: Missing API Key' });
     }
 
-    console.log(`API Key present. Length: ${apiKey.length}`);
-    console.log(`API Key start: ${apiKey.substring(0, 5)}...`);
-    console.log(`API Key end: ...${apiKey.substring(apiKey.length - 5)}`);
+    const data = JSON.stringify({
+        email: email,
+        fields: {
+            name: name || ''
+        }
+    });
 
-    try {
-        const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey.trim()}`,
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                fields: {
-                    name: name || ''
+    const options = {
+        hostname: 'connect.mailerlite.com',
+        path: '/api/subscribers',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey.trim()}`,
+            'Accept': 'application/json',
+            'Content-Length': Buffer.byteLength(data)
+        }
+    };
+
+    return new Promise((resolve, reject) => {
+        const request = https.request(options, (response) => {
+            let body = '';
+
+            response.on('data', (chunk) => {
+                body += chunk;
+            });
+
+            response.on('end', () => {
+                if (response.statusCode >= 200 && response.statusCode < 300) {
+                    try {
+                        const parsedBody = JSON.parse(body);
+                        res.status(200).json({ success: true, message: 'Successfully subscribed', data: parsedBody });
+                    } catch (e) {
+                        res.status(200).json({ success: true, message: 'Successfully subscribed (raw response)' });
+                    }
+                    resolve();
+                } else {
+                    console.error('MailerLite Error Status:', response.statusCode);
+                    console.error('MailerLite Error Body:', body);
+
+                    try {
+                        const errorJson = JSON.parse(body);
+                        res.status(response.statusCode).json({ error: errorJson.message || 'Failed to subscribe' });
+                    } catch (e) {
+                        res.status(response.statusCode).json({ error: body || 'Failed to subscribe' });
+                    }
+                    resolve();
                 }
-            })
+            });
         });
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error('MailerLite Error Status:', response.status);
-            console.error('MailerLite Error Body:', errorText);
+        request.on('error', (error) => {
+            console.error('Server Error:', error);
+            res.status(500).json({ error: 'Internal server error' });
+            resolve();
+        });
 
-            // Try to parse JSON error if possible
-            try {
-                const errorJson = JSON.parse(errorText);
-                return res.status(response.status).json({ error: errorJson.message || 'Failed to subscribe' });
-            } catch (e) {
-                return res.status(response.status).json({ error: errorText || 'Failed to subscribe' });
-            }
-        }
-
-        const data = await response.json();
-        return res.status(200).json({ success: true, message: 'Successfully subscribed' });
-
-    } catch (error) {
-        console.error('Server Error:', error);
-        return res.status(500).json({ error: 'Internal server error' });
-    }
+        request.write(data);
+        request.end();
+    });
 }
