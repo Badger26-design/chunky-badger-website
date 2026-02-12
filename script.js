@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Chunky Badger Script v1.1 - Firebase Update');
+    console.log('Chunky Badger Script v1.2 - MailerLite Restore');
     // --- Email Signup Form Submission ---
     const signupForm = document.getElementById('signup-form');
     if (signupForm) {

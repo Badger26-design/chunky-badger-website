@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import https from 'https';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -11,59 +11,73 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Email is required' });
     }
 
-    // Initialize Firebase inside handler to catch errors gracefully
-    if (!admin.apps.length) {
-        try {
-            const projectId = process.env.FIREBASE_PROJECT_ID;
-            const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-            // Handle both escaped newlines (from Vercel env vars) and regular newlines, and remove quotes if present
-            const privateKey = process.env.FIREBASE_PRIVATE_KEY
-                ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n').replace(/"/g, '')
-                : undefined;
+    const apiKey = process.env.MAILERLITE_API_KEY;
 
-            if (!projectId || !clientEmail || !privateKey) {
-                console.error('Missing Env Vars', { projectId: !!projectId, clientEmail: !!clientEmail, privateKey: !!privateKey });
-                return res.status(500).json({ error: 'Server Config Error: Missing Firebase Credentials' });
-            }
+    if (!apiKey) {
+        console.error('MailerLite API Key is missing');
+        return res.status(500).json({ error: 'Server Config Error: Missing MailerLite API Key' });
+    }
 
-            admin.initializeApp({
-                credential: admin.credential.cert({
-                    projectId,
-                    clientEmail,
-                    privateKey,
-                }),
+    const data = JSON.stringify({
+        email: email,
+        fields: {
+            name: name || ''
+        },
+        groups: [] // Add Group ID here if needed
+    });
+
+    const options = {
+        hostname: 'connect.mailerlite.com',
+        path: '/api/subscribers',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey.trim()}`,
+            'Accept': 'application/json',
+            'Content-Length': Buffer.byteLength(data)
+        }
+    };
+
+    return new Promise((resolve, reject) => {
+        const request = https.request(options, (response) => {
+            let body = '';
+
+            response.on('data', (chunk) => {
+                body += chunk;
             });
-            console.log('Firebase Admin Initialized Successfully');
-        } catch (error) {
-            console.error('Firebase Initialization Error:', error);
-            return res.status(500).json({ error: `Firebase Init Failed: ${error.message}` });
-        }
-    }
 
-    const db = admin.firestore();
+            response.on('end', () => {
+                if (response.statusCode >= 200 && response.statusCode < 300) {
+                    try {
+                        const parsedBody = JSON.parse(body);
+                        console.log('MailerLite Success:', parsedBody.data ? parsedBody.data.id : 'OK');
+                        res.status(200).json({ success: true, message: 'Successfully subscribed' });
+                    } catch (e) {
+                        // Even if JSON parse fails, if status is 2xx, it was likely fine
+                        console.warn('MailerLite Response Parse Error (but 2xx):', e);
+                        res.status(200).json({ success: true, message: 'Successfully subscribed' });
+                    }
+                } else {
+                    console.error(`MailerLite Error (${response.statusCode}):`, body);
+                    try {
+                        const errorData = JSON.parse(body);
+                        const message = errorData.message || 'Failed to subscribe';
+                        res.status(response.statusCode).json({ error: message });
+                    } catch (e) {
+                        res.status(response.statusCode).json({ error: `MailerLite Error: ${response.statusCode}` });
+                    }
+                }
+                resolve();
+            });
+        });
 
-    try {
-        // Basic email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return res.status(400).json({ error: 'Invalid email format' });
-        }
+        request.on('error', (error) => {
+            console.error('HTTPS Request Error:', error);
+            res.status(500).json({ error: 'Internal Server Error (Upstream)' });
+            resolve();
+        });
 
-        const docRef = db.collection('subscribers').doc(email);
-
-        // Add or merge subscriber data
-        await docRef.set({
-            email: email,
-            name: name || '',
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
-            source: 'website_signup'
-        }, { merge: true });
-
-        console.log(`Subscriber added: ${email}`);
-        return res.status(200).json({ success: true, message: 'Successfully subscribed' });
-
-    } catch (error) {
-        console.error('Firestore Error:', error);
-        return res.status(500).json({ error: `Database Error: ${error.message}` });
-    }
+        request.write(data);
+        request.end();
+    });
 }

@@ -52,11 +52,9 @@
     "chokidar": "^4.0.0",
     "commander": "^12.0.0",
     "p-map": "^7.0.4",
-    "picocolors": "^1.1.1",
     "ws": "^8.18.0",
     "yaml": "^2.8.2",
-    "zod": "^4.3.6",
-    "firebase-admin": "^12.0.0"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.13",
