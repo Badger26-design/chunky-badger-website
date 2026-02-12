@@ -25,24 +25,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({ email, name })
                 });
 
+                // Check for HTTP errors first (e.g. 404, 500)
+                if (!response.ok) {
+                    console.error(`HTTP Error: ${response.status}`);
+
+                    // Try to read text to see if it's JSON or HTML
+                    const text = await response.text();
+                    try {
+                        const json = JSON.parse(text);
+                        throw new Error(json.error || `Server Error (${response.status})`);
+                    } catch (e) {
+                        // If it's not JSON, it's likely a Vercel HTML error page
+                        throw new Error(`Server Error (${response.status})`);
+                    }
+                }
+
+                // If OK, parse success data
                 const data = await response.json();
 
-                if (response.ok) {
-                    button.innerText = 'Success! Welcome to the club!';
-                    button.classList.add('btn-success');
-                    signupForm.reset();
-                } else {
-                    const errorMsg = data.error || 'Unknown error';
-                    console.error('Signup error:', data);
-                    button.innerText = `Error: ${errorMsg}`;
-                    setTimeout(() => {
-                        button.innerText = originalButtonText;
-                        button.disabled = false;
-                    }, 5000);
-                }
+                button.innerText = 'Success! Welcome to the club!';
+                button.classList.add('btn-success');
+                signupForm.reset();
+
             } catch (error) {
-                console.error('Network error:', error);
-                button.innerText = 'Network Error. Check console.';
+                console.error('Signup error:', error);
+
+                // Show specific error message on button
+                button.innerText = error.message || 'Error. Check console.';
+
                 setTimeout(() => {
                     button.innerText = originalButtonText;
                     button.disabled = false;
