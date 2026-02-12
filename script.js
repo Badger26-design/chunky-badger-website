@@ -2,10 +2,52 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Email Signup Form Submission ---
     const signupForm = document.getElementById('signup-form');
     if (signupForm) {
-        signupForm.addEventListener('submit', (e) => {
+        signupForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            console.log('Form submission disabled pending new email integration.');
-            alert('We are currently updating our email system. Please check back soon!');
+            const originalButtonText = signupForm.querySelector('button').innerText;
+            const button = signupForm.querySelector('button');
+            const emailInput = document.getElementById('email');
+            const nameInput = document.getElementById('name');
+
+            const email = emailInput.value;
+            const name = nameInput.value;
+
+            // Simple loading state
+            button.innerText = 'Sending...';
+            button.disabled = true;
+
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, name })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    button.innerText = 'Success! Welcome to the club!';
+                    button.classList.add('btn-success');
+                    signupForm.reset();
+                } else {
+                    const errorMsg = data.error || 'Unknown error';
+                    console.error('Signup error:', data);
+                    button.innerText = `Error: ${errorMsg}`;
+                    setTimeout(() => {
+                        button.innerText = originalButtonText;
+                        button.disabled = false;
+                    }, 5000);
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                button.innerText = 'Network Error. Check console.';
+                setTimeout(() => {
+                    button.innerText = originalButtonText;
+                    button.disabled = false;
+                }, 5000);
+            }
         });
     }
     // Smooth Scroll for Navigation Links
