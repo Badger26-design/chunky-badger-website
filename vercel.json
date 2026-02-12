@@ -20,16 +20,6 @@
         {
             "src": "Pictures/**/*",
             "use": "@vercel/static"
-        },
-        {
-            "src": "api/*.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/api/subscribe",
-            "dest": "/api/subscribe.js"
         }
     ]
 }
