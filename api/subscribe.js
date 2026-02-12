@@ -1,31 +1,5 @@
 import admin from 'firebase-admin';
 
-// Prevent initializing the app multiple times in serverless environment
-if (!admin.apps.length) {
-    try {
-        const privateKey = process.env.FIREBASE_PRIVATE_KEY
-            ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-            : undefined;
-
-        if (!process.env.FIREBASE_PROJECT_ID || !process.env.FIREBASE_CLIENT_EMAIL || !privateKey) {
-            throw new Error('Missing Firebase Environment Variables');
-        }
-
-        admin.initializeApp({
-            credential: admin.credential.cert({
-                projectId: process.env.FIREBASE_PROJECT_ID,
-                clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-                privateKey: privateKey,
-            }),
-        });
-        console.log('Firebase Admin Initialized');
-    } catch (error) {
-        console.error('Firebase Initialization Error:', error);
-    }
-}
-
-const db = admin.firestore();
-
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
@@ -36,6 +10,37 @@ export default async function handler(req, res) {
     if (!email) {
         return res.status(400).json({ error: 'Email is required' });
     }
+
+    // Initialize Firebase inside handler to catch errors gracefully
+    if (!admin.apps.length) {
+        try {
+            const projectId = process.env.FIREBASE_PROJECT_ID;
+            const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+            // Handle both escaped newlines (from Vercel env vars) and regular newlines, and remove quotes if present
+            const privateKey = process.env.FIREBASE_PRIVATE_KEY
+                ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n').replace(/"/g, '')
+                : undefined;
+
+            if (!projectId || !clientEmail || !privateKey) {
+                console.error('Missing Env Vars', { projectId: !!projectId, clientEmail: !!clientEmail, privateKey: !!privateKey });
+                return res.status(500).json({ error: 'Server Config Error: Missing Firebase Credentials' });
+            }
+
+            admin.initializeApp({
+                credential: admin.credential.cert({
+                    projectId,
+                    clientEmail,
+                    privateKey,
+                }),
+            });
+            console.log('Firebase Admin Initialized Successfully');
+        } catch (error) {
+            console.error('Firebase Initialization Error:', error);
+            return res.status(500).json({ error: `Firebase Init Failed: ${error.message}` });
+        }
+    }
+
+    const db = admin.firestore();
 
     try {
         // Basic email validation
@@ -59,6 +64,6 @@ export default async function handler(req, res) {
 
     } catch (error) {
         console.error('Firestore Error:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ error: `Database Error: ${error.message}` });
     }
 }
