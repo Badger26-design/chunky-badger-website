@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Chunky Badger Script v1.1 - Firebase Update');
     // --- Email Signup Form Submission ---
     const signupForm = document.getElementById('signup-form');
     if (signupForm) {
