@@ -694,6 +694,17 @@ h6 {
     .stack-form {
         padding: 20px;
     }
+
+    .email-grid .styled-list {
+        display: inline-block;
+        text-align: left;
+        margin: 0 auto 20px auto;
+        padding-left: 0;
+    }
+
+    .email-grid .styled-list li {
+        text-align: left !important;
+    }
 }
 
 @media (max-width: 768px) {
