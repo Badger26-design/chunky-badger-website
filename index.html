@@ -41,7 +41,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#products">Our Books</a></li>
-                <li><a href="#email-signup" class="btn btn-primary btn-sm">Sign Up</a></li>
+                <li><a href="#email-signup" class="btn btn-primary btn-sm">Free Drawing Pack</a></li>
             </ul>
         </nav>
     </header>
@@ -97,15 +97,9 @@
     <!-- Email Signup / "Join the Club" (White/Light Background, Two Columns) -->
     <section id="email-signup" class="section-padding bg-gradient-abstract">
         <div class="container">
-            <div class="email-grid">
-                <!-- Image Left: Badger on Easel (If available, otherwise placeholder or use logo) -->
-                <!-- PDF shows a badger character painting. Let's try                <!-- Image Left: Badger on Easel -->
-                <div class="email-image reveal">
-                    <img src="Pictures/Figma/Images/Email%20Signup/Badger%20at%20Easel-cut.png"
-                        alt="Chunky Badger Art Club">
-                </div>
-
-                <div class="email-content reveal delay-200">
+            <div class="email-grid compact-layout">
+                <!-- Text Column -->
+                <div class="email-text-column reveal">
                     <h2 class="section-label text-berry">🎨 FREE 5-Day Learn-to-Draw Challenge for Kids</h2>
                     <h3 class="big-statement text-berry">Screen-Free Creative Fun Using Our Simple 6-Step Method</h3>
                     <p class="body-text text-dark">Join the Chunky Badger Drawing Club and receive 5 exclusive
@@ -118,9 +112,13 @@
                         <li>No screens required</li>
                         <li>Instant download</li>
                     </ul>
-                    <p class="body-text text-dark">Pop your details below and start drawing today 🦡</p>
+                </div>
 
-                    <form id="signup-form" class="stack-form">
+                <!-- Form Column -->
+                <div class="email-form-column reveal delay-200">
+                    <p class="body-text text-dark" style="text-align: center; margin-bottom: 20px; font-weight: bold;">
+                        Pop your details below and start drawing today 🦡</p>
+                    <form id="signup-form" class="stack-form" style="margin-top: 0;">
                         <div class="form-group">
                             <label for="name">First Name</label>
                             <input type="text" id="name" name="name" placeholder="First Name" required>
