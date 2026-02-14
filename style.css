@@ -433,6 +433,12 @@ h6 {
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
     display: block;
     margin: 0 auto;
+    margin: 0 auto;
+}
+
+.form-intro {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .stack-form {
@@ -695,14 +701,33 @@ h6 {
         padding: 20px;
     }
 
+    /* Left align all content in email grid on mobile */
+    .email-grid,
+    .email-text-column,
+    .email-form-column,
+    .email-grid h2,
+    .email-grid h3,
+    .email-grid p,
+    .email-grid form,
+    .email-grid label,
+    .email-grid input {
+        text-align: left !important;
+    }
+
     .email-grid .styled-list {
-        display: inline-block;
-        text-align: left;
-        margin: 0 auto 20px auto;
+        display: block;
+        text-align: left !important;
+        margin: 0 0 20px 0;
         padding-left: 0;
+        /* Align with other text, LI has its own padding */
     }
 
     .email-grid .styled-list li {
+        text-align: left !important;
+    }
+
+    /* Override any specific centering */
+    .form-intro {
         text-align: left !important;
     }
 }
