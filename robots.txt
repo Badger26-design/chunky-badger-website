@@ -1,0 +1,5 @@
+# Chunky Badger - robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.chunkybadger.com/sitemap.xml
