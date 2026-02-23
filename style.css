@@ -802,3 +802,137 @@ h6 {
         text-align: left;
     }
 }
+
+/* ===================== */
+/* FAQ Page Styles       */
+/* ===================== */
+
+.faq-hero {
+    padding-top: 140px;
+    padding-bottom: var(--spacing-lg);
+}
+
+.faq-hero .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 15px;
+}
+
+.faq-hero .hero-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
+}
+
+.faq-item:first-child {
+    border-top: 1px solid #e8e8e8;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: left;
+    transition: color 0.3s ease;
+    gap: 15px;
+}
+
+.faq-question:hover {
+    color: var(--secondary-berry);
+}
+
+.faq-icon {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--primary-teal);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 10px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 600px;
+    padding: 0 10px 25px;
+}
+
+.faq-answer p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-grey);
+    margin-bottom: 12px;
+}
+
+.faq-answer ul {
+    list-style: none;
+    padding-left: 5px;
+    margin-bottom: 15px;
+}
+
+.faq-answer ul li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-grey);
+    margin-bottom: 6px;
+    padding-left: 0;
+}
+
+.faq-answer .btn {
+    margin-top: 10px;
+    padding: 14px 30px;
+    font-size: 1rem;
+}
+
+.faq-answer a:not(.btn) {
+    color: var(--secondary-berry);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.faq-answer a:not(.btn):hover {
+    color: var(--secondary-berry-dark);
+}
+
+/* FAQ Mobile */
+@media (max-width: 768px) {
+    .faq-hero {
+        padding-top: 110px;
+    }
+
+    .faq-question {
+        font-size: 1rem;
+        padding: 18px 5px;
+    }
+
+    .faq-answer p,
+    .faq-answer ul li {
+        font-size: 0.95rem;
+    }
+}
