@@ -207,6 +207,25 @@ h6 {
     margin-top: var(--spacing-md);
 }
 
+/* Image Background Hero Sections */
+.hero-bg-woodland {
+    background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('Pictures/Optimized/Woodlands and Countryside.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-bg-rivers {
+    background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('Pictures/Optimized/Rivers, Lakes and Coasts.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.hero-bg-garden {
+    background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('Pictures/Optimized/In the Garden.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
