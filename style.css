@@ -466,10 +466,10 @@ h6 {
 }
 
 .animal-fox {
-    bottom: calc(-1 * var(--spacing-lg)); /* Ensures feet touch bottom of padded section */
-    left: 50%;
+    bottom: -85px; /* Ensures feet touch and slightly overlap bottom of the block */
+    left: 15%; /* Moved over to the left */
     width: 150px;
-    transform: translateX(-50%) rotate(0deg); /* Centered and unrotated for stability */
+    transform: rotate(-5deg); /* Slight playful tilt */
 }
 
 .animal-otter {
