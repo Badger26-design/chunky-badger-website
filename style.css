@@ -455,6 +455,7 @@ h6 {
 /* Decorative Signup Section & Animals */
 .signup-decor-section {
     position: relative;
+    z-index: 20; /* Ensures animals in this section overlap the following section */
     /* allow overflow for animals to peek around */
 }
 
@@ -467,9 +468,9 @@ h6 {
 
 .animal-fox {
     bottom: -85px; /* Ensures feet touch and slightly overlap bottom of the block */
-    left: 15%; /* Moved over to the left */
+    left: 50%; /* Moved to the middle */
     width: 150px;
-    transform: rotate(-5deg); /* Slight playful tilt */
+    transform: translateX(-50%) rotate(0deg); /* Centered securely */
 }
 
 .animal-otter {
