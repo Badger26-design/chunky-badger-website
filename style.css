@@ -763,8 +763,10 @@ h6 {
     .hero-grid,
     .about-grid,
     .email-grid,
-    .book-feature-grid {
-        grid-template-columns: 1fr;
+    .book-feature-grid,
+    .parents-love-grid,
+    .parents-love-features {
+        grid-template-columns: 1fr !important;
         gap: 40px;
         text-align: center;
     }
