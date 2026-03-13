@@ -466,24 +466,24 @@ h6 {
 }
 
 .animal-fox {
-    bottom: -60px;
-    left: -20px;
-    width: 220px;
-    transform: rotate(-8deg);
+    bottom: calc(-1 * var(--spacing-lg)); /* Ensures feet touch bottom of padded section */
+    left: 50%;
+    width: 150px;
+    transform: translateX(-50%) rotate(0deg); /* Centered and unrotated for stability */
 }
 
 .animal-otter {
-    top: -50px;
-    right: -10px;
-    width: 170px;
-    transform: rotate(12deg);
+    bottom: calc(100% - 22px); /* Overlaps top of form card slightly */
+    right: 20px;
+    width: 140px;
+    transform: rotate(8deg);
 }
 
 .animal-robin {
-    top: -30px;
-    left: 45%;
-    width: 110px;
-    transform: rotate(10deg);
+    bottom: calc(100% - 15px); /* Overlaps top of form card slightly */
+    left: 40px;
+    width: 100px;
+    transform: rotate(5deg);
 }
 
 /* Email Signup Form Blobs */
