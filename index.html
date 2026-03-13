@@ -138,7 +138,7 @@
 
     <main>
         <!-- Hero Section (Dark BG, Text + Character) -->
-        <section id="hero" class="hero-section">
+        <section id="hero" class="hero-section hero-bg-blur">
             <div class="container hero-grid">
                 <div class="hero-content reveal">
                     <h1 class="hero-title">Unleash your<br><span class="text-berry">inner artist</span></h1>
@@ -150,9 +150,8 @@
                     </div>
                 </div>
                 <div class="hero-image-container reveal delay-200">
-                    <!-- Using Whisk character image as best match for badger holding pencils -->
-                    <img src="Pictures/Figma/Images/Header/Chunky-Badger---Character-cut-LoRes.png"
-                        alt="Chunky Badger character holding coloured pencils, ready to draw" class="hero-character">
+                    <img src="Pictures/Figma/Images/Header/hands/chunky-badger-how-to-draw-books-hand-hero.png"
+                        alt="Hand holding Chunky Badger book" id="hero-hand-image" class="hero-character">
                 </div>
             </div>
         </section>
@@ -227,51 +226,100 @@
             <div class="container">
                 <div class="section-header reveal text-center">
                     <h2 class="section-label text-gold">Our Books</h2>
-                    <h3 class="big-statement text-white">Available Now - Learn to Draw: British Animals</h3>
+                    <h3 class="big-statement text-white">Available Now</h3>
                 </div>
 
-                <div class="book-feature-grid reveal">
-                    <!-- Book Image -->
-                    <div class="book-main-image">
-                        <img src="Pictures/Figma/Images/Our%20Books/British-Animals-Mock-flying-lo-res.png"
-                            alt="Learn to Draw British Animals book cover mockup by Chunky Badger">
+                <div class="books-scroll-wrapper" id="books-scroll-wrapper">
+                    <div class="books-sticky-container">
+                        <div class="books-slider-track" id="books-slider-track">
+                        
+                        <!-- Book 1: British Animals -->
+                        <div class="book-slide">
+                            <div class="book-feature-grid reveal">
+                                <div class="book-main-image">
+                                    <img src="Pictures/Figma/Images/Our%20Books/British-Animals-Mock-flying-lo-res.png"
+                                        alt="Learn to Draw British Animals book cover mockup by Chunky Badger">
+                                </div>
+
+                                <div class="book-details text-white">
+                                    <h3 class="text-gold" style="font-size: 2rem; margin-bottom: 20px;">Learn to Draw: British Animals</h3>
+                                    <div class="detail-block">
+                                        <h4 class="text-white text-opacity">Inside you’ll find:</h4>
+                                        <ul class="styled-list white-check">
+                                            <li><strong>Woodland Creatures:</strong> From curious Foxes to cuddly Badgers.</li>
+                                            <li><strong>Farm Favourites:</strong> Playful Pigs, Sheep, and the majestic Highland Cow.</li>
+                                            <li><strong>Seaside Friends:</strong> Draw the perfect Puffin, Seagull, and even an Otter!</li>
+                                        </ul>
+                                    </div>
+
+
+
+                                    <div class="action-block">
+                                        <a href="https://amzn.eu/d/0dFI2cpF" target="_blank" class="btn btn-warning">Buy on Amazon</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book 2: African Animals -->
+                        <div class="book-slide">
+                            <div class="book-feature-grid reveal">
+                                <div class="book-main-image">
+                                    <img src="Pictures/Figma/Images/Our%20Books/CB%20African%20Animals%20Front%20Cover%20mockup-cut.png"
+                                        alt="Learn to Draw African Animals book cover mockup by Chunky Badger" style="max-height: 500px; object-fit: contain; margin: 0 auto;">
+                                </div>
+
+                                <div class="book-details text-white">
+                                    <h3 class="text-gold" style="font-size: 2rem; margin-bottom: 20px;">Learn to Draw: African Animals</h3>
+                                    <div class="detail-block">
+                                        <h4 class="text-white text-opacity">Inside you’ll find:</h4>
+                                        <ul class="styled-list white-check">
+                                            <li><strong>Savanna Stars:</strong> From the king of the jungle to the tallest of giraffes.</li>
+                                            <li><strong>Jungle Giants:</strong> Draw the mighty Elephant, the stealthy Leopard, and the cheeky Chimpanzee.</li>
+                                            <li><strong>River Dwellers:</strong> Splash around with the Hippo and the snap-happy Crocodile!</li>
+                                        </ul>
+                                    </div>
+
+
+
+                                    <div class="action-block">
+                                        <a href="https://amzn.eu/d/0aOUGahP" target="_blank" class="btn btn-warning">Buy on Amazon</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                    
+                    <!-- Slider Navigation Dots -->
+                    <div class="books-slider-nav reveal">
+                        <button class="slider-dot active" aria-label="Go to book 1" onclick="scrollToBook(1)"></button>
+                        <button class="slider-dot" aria-label="Go to book 2" onclick="scrollToBook(2)"></button>
+                    </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
 
-                    <!-- Book Details -->
-                    <div class="book-details text-white">
-                        <div class="detail-block">
-                            <h4 class="text-gold">Inside you’ll find:</h4>
-                            <ul class="styled-list white-check">
-                                <li><strong>Woodland Creatures:</strong> From curious Foxes to cuddly Badgers.</li>
-                                <li><strong>Farm Favourites:</strong> Playful Pigs, Sheep, and the majestic Highland
-                                    Cow.
-                                </li>
-                                <li><strong>Seaside Friends:</strong> Draw the perfect Puffin, Seagull, and even an
-                                    Otter!
-                                </li>
-                            </ul>
+                <!-- Standalone "Why Parents Love It" Callout -->
+                <div class="parents-love-callout reveal text-center mt-5" style="margin-top: 60px; padding: 40px; background: rgba(0,0,0,0.15); border-radius: 12px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                    <h3 class="text-gold" style="font-size: 2rem; margin-bottom: 30px;">Why Parents Love It:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left;">
+                        <div>
+                            <h4 class="text-white" style="margin-bottom: 10px;"><span class="text-gold" style="font-weight: 800; font-size: 1.2rem; margin-right: 8px;">✓</span>Easy to Follow:</h4>
+                            <p class="text-opacity" style="font-size: 1.1rem;">Every animal is broken down into 6 visual steps—no reading required!</p>
                         </div>
-
-                        <div class="detail-block">
-                            <h4 class="text-gold">Why Parents Love It:</h4>
-                            <ul class="styled-list white-check">
-                                <li><strong>Easy to Follow:</strong> Every animal is broken down into 6 visual steps—no
-                                    reading required!</li>
-                                <li><strong>All-in-One:</strong> Includes practice space and tips on how to start with
-                                    basic
-                                    shapes.</li>
-                                <li><strong>Creative Freedom:</strong> Once the outline is done, we encourage kids to
-                                    add
-                                    colour to their masterpiece!</li>
-                            </ul>
+                        <div>
+                            <h4 class="text-white" style="margin-bottom: 10px;"><span class="text-gold" style="font-weight: 800; font-size: 1.2rem; margin-right: 8px;">✓</span>All-in-One:</h4>
+                            <p class="text-opacity" style="font-size: 1.1rem;">Includes practice space and tips on how to start with basic shapes.</p>
                         </div>
-
-                        <div class="action-block">
-                            <a href="https://amzn.eu/d/0dFI2cpF" target="_blank" class="btn btn-warning">Buy on
-                                Amazon</a>
+                        <div>
+                            <h4 class="text-white" style="margin-bottom: 10px;"><span class="text-gold" style="font-weight: 800; font-size: 1.2rem; margin-right: 8px;">✓</span>Creative Freedom:</h4>
+                            <p class="text-opacity" style="font-size: 1.1rem;">Once the outline is done, we encourage kids to add colour to their masterpiece!</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -284,7 +332,7 @@
                     books.
                     Keep your pencils sharp and look out for these exciting new titles coming soon:</p>
 
-                <div class="coming-soon-grid reveal delay-200">
+                <div class="coming-soon-grid reveal delay-200" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); max-width: 900px; margin-left: auto; margin-right: auto;">
                     <!-- Card 1 -->
                     <div class="coming-card">
                         <div class="card-image">
@@ -300,20 +348,6 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="coming-card">
-                        <div class="card-image">
-                            <img src="Pictures/Figma/Images/Coming Soon/African-Animals-LoRes.jpg"
-                                alt="Learn to Draw African Animals - coming soon from Chunky Badger">
-                        </div>
-                        <div class="card-content">
-                            <h4>Learn to Draw African Animals</h4>
-                            <p>Pack your bags for a drawing safari! From the king of the jungle to the tallest of
-                                giraffes.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
                     <div class="coming-card">
                         <div class="card-image">
                             <img src="Pictures/Figma/Images/Coming Soon/Dinosaurs-LoRes.jpg"

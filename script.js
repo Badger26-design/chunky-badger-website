@@ -138,4 +138,71 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         }, 500);
     }
+
+    // Hand Parallax Effect
+    const heroHandImage = document.getElementById('hero-hand-image');
+    if (heroHandImage) {
+        window.addEventListener('scroll', () => {
+             // 3D pivot effect around the vertical center (Y-axis)
+            const scrolled = window.scrollY;
+            // Cap the rotation between 0 and 35 degrees so it remains readable
+            const tilt = Math.max(-35, Math.min(scrolled * 0.06, 35));
+            heroHandImage.style.transform = `rotateY(${tilt}deg)`;
+        });
+    }
+
+    // Books Slider Logic (Vertical to Horizontal)
+    const booksWrapper = document.getElementById('books-scroll-wrapper');
+    const booksTrack = document.getElementById('books-slider-track');
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    if (booksWrapper && booksTrack) {
+        window.addEventListener('scroll', () => {
+            const rect = booksWrapper.getBoundingClientRect();
+            // Match the 10vh top and 80vh height CSS definition
+            const stickyTop = window.innerHeight * 0.1; 
+            const stickyContainerHeight = window.innerHeight * 0.8; 
+            
+            // Calculate how far we've scrolled past the sticky trigger point
+            const scrollDistance = Math.max(0, stickyTop - rect.top);
+            
+            // The total scrollable distance within the sticky state
+            const maxScrollable = booksWrapper.offsetHeight - stickyContainerHeight;
+            
+            // Normalize progress between 0 and 1
+            let progress = scrollDistance / maxScrollable;
+            progress = Math.max(0, Math.min(1, progress));
+            
+            // Translate the track horizontally
+            const maxTranslate = booksTrack.scrollWidth - booksTrack.clientWidth;
+            booksTrack.style.transform = `translateX(-${progress * maxTranslate}px)`;
+            
+            // Update the active dot
+            if(dots.length > 0) {
+                const activeIndex = Math.round(progress * (dots.length - 1));
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            }
+        });
+        
+        // Update scrollToBook to scroll the page vertically to the right spot
+        window.scrollToBook = function(bookNumber) {
+            if(dots.length === 0) return;
+            const index = bookNumber - 1;
+            const targetProgress = index / (dots.length - 1);
+            
+            const stickyTop = window.innerHeight * 0.1;
+            const stickyContainerHeight = window.innerHeight * 0.8;
+            const maxScrollable = booksWrapper.offsetHeight - stickyContainerHeight;
+            const wrapperDocTop = window.scrollY + booksWrapper.getBoundingClientRect().top;
+            
+            const targetScrollY = wrapperDocTop - stickyTop + (targetProgress * maxScrollable);
+            
+            window.scrollTo({
+                top: targetScrollY,
+                behavior: 'smooth'
+            });
+        };
+    }
 });

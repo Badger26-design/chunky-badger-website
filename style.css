@@ -200,6 +200,8 @@ h6 {
 }
 
 .section-padding {
+    position: relative;
+    z-index: 10;
     padding: var(--spacing-lg) 0;
 }
 
@@ -222,6 +224,12 @@ h6 {
 
 .hero-bg-garden {
     background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('Pictures/Optimized/In the Garden.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-bg-blur {
+    background-image: linear-gradient(rgba(13, 17, 23, 0.6), rgba(13, 17, 23, 0.6)), url('Pictures/Figma/Images/Header/hands/British%20Animals%20FC%20blur.png');
     background-size: cover;
     background-position: center;
 }
@@ -361,7 +369,9 @@ h6 {
 
 /* Hero Section (Revised) */
 .hero-section {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1;
     width: 100%;
     min-height: 100vh;
     background-color: var(--bg-hero-dark);
@@ -393,6 +403,7 @@ h6 {
 
 .hero-image-container {
     position: relative;
+    perspective: 1000px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -400,12 +411,17 @@ h6 {
 }
 
 .hero-character {
-    max-height: 90vh;
-    /* Make it prominent as per reference */
+    max-height: 85vh;
+    /* Adjust slightly smaller to look more natural holding the book */
     width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
-    transform: scaleX(-1);
+    object-fit: cover;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+    /* Hand image already has correct orientation */
+    transform-origin: bottom center;
+    /* Pivot from the bottom of the hand */
+    will-change: transform;
+    margin-bottom: -5vh;
+    /* Pull down slightly to anchor to the screen bottom better */
 }
 
 /* Ensure Email Image is responsive */
@@ -500,13 +516,64 @@ h6 {
 }
 
 
-/* Products / Books */
+/* Books Slider Setup */
+.books-scroll-wrapper {
+    height: 250vh; /* creates vertical scrolling space for the two books */
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.books-sticky-container {
+    position: sticky;
+    top: 10vh; /* headroom from top of viewport */
+    height: 80vh; /* visible window for the sliding area */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.books-slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    will-change: transform;
+    /* CSS translation handled securely by JS now */
+}
+
+.book-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+
 .book-feature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
-    margin-top: 40px;
+}
+
+.books-slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.slider-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--sunflower-gold);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: var(--sunflower-gold);
+    transform: scale(1.2);
 }
 
 .book-main-image img {
@@ -603,6 +670,8 @@ h6 {
 
 /* Footer */
 .main-footer {
+    position: relative;
+    z-index: 10;
     padding: 60px 0;
     background-color: var(--bg-black);
     color: white;
