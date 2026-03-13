@@ -757,6 +757,26 @@ h6 {
     transition-delay: 0.4s;
 }
 
+/* Floating Animations */
+.floating-bee {
+    animation: floatBee 6s ease-in-out infinite;
+}
+
+@keyframes floatBee {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-10px, -5px) rotate(-3deg);
+    }
+    50% {
+        transform: translate(-15px, 0px) rotate(0deg);
+    }
+    75% {
+        transform: translate(-10px, 5px) rotate(3deg);
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 960px) {
 
