@@ -452,6 +452,97 @@ h6 {
     transform: rotate(0deg) scale(1.02);
 }
 
+/* Decorative Signup Section & Animals */
+.signup-decor-section {
+    position: relative;
+    /* allow overflow for animals to peek around */
+}
+
+.decor-animal {
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+}
+
+.animal-fox {
+    bottom: -60px;
+    left: -20px;
+    width: 220px;
+    transform: rotate(-8deg);
+}
+
+.animal-otter {
+    top: -50px;
+    right: -10px;
+    width: 170px;
+    transform: rotate(12deg);
+}
+
+.animal-robin {
+    top: -30px;
+    left: 45%;
+    width: 110px;
+    transform: rotate(10deg);
+}
+
+/* Email Signup Form Blobs */
+.form-blob-container {
+    position: relative;
+    z-index: 2;
+}
+
+.organic-blob {
+    position: absolute;
+    filter: blur(30px);
+    opacity: 0.6;
+    z-index: 1;
+    animation: blobMorph 12s ease-in-out infinite alternate;
+}
+
+.organic-blob.blob-1 {
+    top: -15%;
+    right: -10%;
+    width: 320px;
+    height: 320px;
+    background: var(--frozen-blue);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation-delay: 0s;
+}
+
+.organic-blob.blob-2 {
+    bottom: -10%;
+    left: -15%;
+    width: 280px;
+    height: 280px;
+    background: var(--sunflower-gold);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation-delay: -6s;
+}
+
+@keyframes blobMorph {
+    0% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: rotate(25deg) scale(1.1);
+    }
+}
+
+.form-card-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.6);
+    position: relative;
+    z-index: 10;
+}
+
 /* Email Signup / "Join the Club" */
 .email-grid {
     display: grid;
@@ -818,6 +909,19 @@ h6 {
     .email-image {
         display: none;
         /* Hide illustrative image on mobile if space saving needed, or keep */
+    }
+
+    .decor-animal {
+        display: none;
+    }
+
+    .organic-blob {
+        transform: scale(0.7);
+        opacity: 0.4;
+    }
+
+    .form-card-glass {
+        padding: 25px;
     }
 
     .stack-form {
