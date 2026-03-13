@@ -526,8 +526,8 @@ h6 {
 
 .books-sticky-container {
     position: sticky;
-    top: 10vh; /* headroom from top of viewport */
-    height: 80vh; /* visible window for the sliding area */
+    top: 5vh; /* headroom from top of viewport */
+    height: 90vh; /* slightly taller visible window so mobile buttons fit */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -545,6 +545,8 @@ h6 {
 .book-slide {
     flex: 0 0 100%;
     min-width: 100%;
+    padding: 0 40px; /* added horizontal padding to separate books */
+    box-sizing: border-box;
 }
 
 .book-feature-grid {
@@ -771,6 +773,7 @@ h6 {
     }
 
     .hero-character {
+        display: block !important;
         max-height: 50vh;
         width: 80%;
         margin: 0 auto;
@@ -883,7 +886,8 @@ h6 {
     }
 
     .book-feature-grid {
-        text-align: left;
+        text-align: center;
+        gap: 20px; /* tighten gap vertically on mobile to prevent overflow */
     }
 
     .about-text {
