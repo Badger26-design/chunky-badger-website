@@ -774,9 +774,16 @@ h6 {
 
     .hero-character {
         display: block !important;
-        max-height: 50vh;
-        width: 80%;
+        max-height: 45vh;
+        width: 100%;
+        object-fit: contain;
         margin: 0 auto;
+        margin-bottom: -20px; /* pull down slightly instead of 5vh */
+    }
+
+    .hero-image-container {
+        min-height: 350px; /* Gives the box explicit height on mobile */
+        align-items: flex-end;
     }
 
     .about-image {
