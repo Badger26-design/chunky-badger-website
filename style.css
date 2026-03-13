@@ -525,8 +525,9 @@ h6 {
 
 .books-sticky-container {
     position: sticky;
-    top: 5vh; /* headroom from top of viewport */
+    top: max(5vh, calc((100vh - 700px) / 2)); /* Centers vertically on large screens */
     height: 90vh; /* slightly taller visible window so mobile buttons fit */
+    max-height: 700px; /* Limits depth on large desktop screens */
     display: flex;
     flex-direction: column;
     justify-content: center;
