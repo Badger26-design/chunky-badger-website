@@ -411,10 +411,11 @@ h6 {
 }
 
 .hero-character {
-    max-height: 85vh;
-    /* Adjust slightly smaller to look more natural holding the book */
+    height: 95vh;
+    /* Maximized size to fill the vertical height of the screen */
     width: auto;
-    object-fit: cover;
+    max-width: none;
+    object-fit: contain;
     filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
     /* Hand image already has correct orientation */
     transform-origin: bottom center;
@@ -774,8 +775,10 @@ h6 {
 
     .hero-character {
         display: block !important;
-        max-height: 45vh;
-        width: 100%;
+        height: 60vh;
+        max-height: 60vh;
+        width: auto;
+        max-width: 125%;
         object-fit: contain;
         margin: 0 auto;
         margin-bottom: -20px; /* pull down slightly instead of 5vh */
