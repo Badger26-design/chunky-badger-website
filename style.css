@@ -376,7 +376,6 @@ h6 {
     min-height: 100vh;
     background-color: var(--bg-hero-dark);
     display: flex;
-    align-items: center;
     padding-top: 80px;
     /* Space for fixed header */
 }
@@ -408,6 +407,7 @@ h6 {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    align-self: end;
 }
 
 .hero-character {
@@ -420,8 +420,7 @@ h6 {
     transform-origin: bottom center;
     /* Pivot from the bottom of the hand */
     will-change: transform;
-    margin-bottom: -5vh;
-    /* Pull down slightly to anchor to the screen bottom better */
+    margin-bottom: 0;
 }
 
 /* Ensure Email Image is responsive */
