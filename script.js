@@ -205,4 +205,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
     }
+
+    // --- Subtle Cookie Bar ---
+    const cookieName = 'cb_cookies_accepted';
+    if (!localStorage.getItem(cookieName)) {
+        const cookieBar = document.createElement('div');
+        cookieBar.className = 'cookie-bar';
+        cookieBar.innerHTML = `
+            <p>We use cookies to ensure you get the best experience on our website. <a href="privacy-policy.html">Learn more</a></p>
+            <button class="btn-cookie" id="accept-cookies">Got it!</button>
+        `;
+        document.body.appendChild(cookieBar);
+
+        // Slight delay to allow transition to happen after appending
+        setTimeout(() => {
+            cookieBar.classList.add('show');
+        }, 500);
+
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            localStorage.setItem(cookieName, 'true');
+            cookieBar.classList.remove('show');
+            setTimeout(() => {
+                cookieBar.remove();
+            }, 500);
+        });
+    }
 });
