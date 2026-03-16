@@ -1165,7 +1165,12 @@ h6 {
     .faq-answer ul li {
         font-size: 0.95rem;
     }
+    
+    .content-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
+
 /* Cookie Bar */
 .cookie-bar {
     position: fixed;
