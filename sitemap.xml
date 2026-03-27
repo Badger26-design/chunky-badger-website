@@ -65,5 +65,16 @@
         <lastmod>2026-03-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    <url>
+        <loc>https://www.chunkybadger.com/product-british-animals.html</loc>
+        <lastmod>2026-03-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/product-african-animals.html</loc>
+        <lastmod>2026-03-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>

@@ -353,6 +353,59 @@ h6 {
     color: var(--secondary-berry);
 }
 
+/* Dropdown Menu */
+.has-dropdown {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: -20px; /* extends hover area */
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: var(--bg-white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 10px 0;
+    display: flex; /* overridden from header nav ul default but explicitly column */
+    flex-direction: column;
+    gap: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1010;
+    pointer-events: none;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    color: var(--text-dark) !important;
+    padding: 12px 20px !important;
+    display: block;
+    font-size: 0.95rem !important;
+    text-transform: none !important;
+    border-radius: 0;
+}
+
+.dropdown-menu a:hover {
+    background: var(--bg-cream);
+    color: var(--secondary-berry) !important;
+    padding-left: 25px !important; /* interactive hover indent */
+}
+
 /* Hamburger */
 .hamburger {
     display: none;
@@ -1013,6 +1066,46 @@ h6 {
 
     .main-header nav a {
         font-size: 1.2rem;
+    }
+
+    .has-dropdown {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        padding: 5px 0;
+        margin-top: 10px;
+        display: none; 
+    }
+
+    .has-dropdown:focus-within .dropdown-menu,
+    .has-dropdown:hover .dropdown-menu,
+    .has-dropdown:active .dropdown-menu {
+        display: flex;
+        pointer-events: auto;
+    }
+
+    .dropdown-menu a {
+        color: white !important;
+        font-size: 1.1rem !important;
+        padding: 10px !important;
+        text-align: center;
+    }
+
+    .dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--sunflower-gold) !important;
+        padding-left: 10px !important;
     }
 
     .hero-title {

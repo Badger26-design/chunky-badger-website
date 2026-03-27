@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KYT8BXJ5F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-9KYT8BXJ5F');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn to Draw: African Animals | Chunky Badger</title>
+    <link rel="icon" type="image/png" href="Pictures/Logo/favicon.png">
+    <meta name="description" content="Embark on a wild drawing safari! Grab your pencil to learn how to draw over 40 amazing African animals with this step-by-step kids how to draw book.">
+    <link rel="stylesheet" href="style.css?v=mobile-fix-3">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .breadcrumbs {
+            padding: 20px 0;
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            padding-top: 100px; /* Space for fixed header */
+        }
+        .breadcrumbs a {
+            color: var(--primary-teal);
+            font-weight: 600;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .main-image-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+        .main-image-container img {
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(-15px 25px 20px rgba(0,0,0,0.15));
+            transform: scale(0.95) translateY(-10px);
+            transition: opacity 0.3s ease;
+        }
+        .product-thumbnails {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        .thumb {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .thumb.active, .thumb:hover {
+            border-color: var(--sunflower-gold);
+            transform: translateY(-2px);
+        }
+        .product-info {
+            padding-top: 20px;
+        }
+        .product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .product-badge {
+            background: var(--sunflower-gold);
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .main-image-container {
+                height: 350px;
+            }
+            .parents-love-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .habitat-card {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header" style="background-color: var(--bg-hero-dark);">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="Pictures/Logo/ChunkyBadger-Peach-landscape.png" alt="Chunky Badger" class="logo-img">
+            </a>
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li class="has-dropdown">
+                    <a href="index.html#products">Our Books</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="product-british-animals.html">British Animals</a></li>
+                        <li><a href="product-african-animals.html">African Animals</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="index.html#email-signup" class="btn btn-primary btn-sm">Free Drawing Pack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <!-- Breadcrumbs bg-cream -->
+        <section class="breadcrumbs bg-cream">
+            <div class="container">
+                <a href="index.html">Home</a> &gt; <a href="index.html#products">Our Books</a> &gt; <span>Learn to Draw: African Animals</span>
+            </div>
+        </section>
+
+        <!-- Product Hero grid bg-cream -->
+        <section class="product-hero bg-cream section-padding" style="padding-top: 20px;">
+            <div class="container">
+                <div class="product-grid">
+                    <!-- Gallery -->
+                    <div class="product-gallery reveal">
+                        <div class="main-image-container">
+                            <img id="main-product-image" src="Pictures/Mockups/Africa/Front Cover/CB-African-Animals-Front-Cover-mockup-no-Bgrnd.png" alt="African Animals Book Cover">
+                        </div>
+                        <div class="product-thumbnails">
+                            <img src="Pictures/Mockups/Africa/Front Cover/CB-African-Animals-Front-Cover-mockup-no-Bgrnd.png" alt="Cover" class="thumb active" style="background: white;" onclick="changeImage(this, 'Pictures/Mockups/Africa/Front Cover/CB-African-Animals-Front-Cover-mockup-no-Bgrnd.png', true)">
+                            <!-- Placeholders for spreads, will be updated by user later -->
+                            <img src="Pictures/Mockups/UK/Spread mockups/goldfish rabbit tortoise guinea pig spread.png" alt="Spread 1" class="thumb" style="background: white;" onclick="changeImage(this, 'Pictures/Mockups/UK/Spread mockups/goldfish rabbit tortoise guinea pig spread.png', false)">
+                            <img src="Pictures/Mockups/UK/Spread mockups/Spread mockup hedgehog deer 3.png" alt="Spread 2" class="thumb" style="background: white;" onclick="changeImage(this, 'Pictures/Mockups/UK/Spread mockups/Spread mockup hedgehog deer 3.png', false)">
+                        </div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="product-info reveal delay-200">
+                        <h2 class="section-label text-teal">Kids How to Draw Book</h2>
+                        <h1 class="product-title big-statement text-berry" style="margin-bottom: 10px;">Learn to Draw: African Animals</h1>
+                        <div class="product-price">£8.99 <span class="product-badge">Prime</span></div>
+                        
+                        <p class="body-text text-dark" style="font-size: 1.2rem; margin-bottom: 20px;">
+                            <strong>Embark on a Wild Drawing Safari!</strong>
+                        </p>
+                        
+                        <p class="body-text text-dark" style="margin-bottom: 30px;">
+                            Grab your pencil for a wild drawing safari through the African plains! This fun and friendly step-by-step book helps young artists learn how to draw over 40 amazing African animals - from safari stars and powerful predators to gentle giants and majestic birds. Tailored perfectly for kids ages 5 to 9, this activity book is perfect for beginners, budding artists, and parents who love creative screen-free fun.
+                        </p>
+                        
+                        <div class="detail-block" style="margin-bottom: 30px;">
+                            <h4 class="text-berry" style="font-size: 1.3rem; margin-bottom: 15px;">What’s waiting for you inside?</h4>
+                            <ul class="styled-list text-dark">
+                                <li><strong>Incredible Variety:</strong> Features OVER 40 ANIMALS!</li>
+                                <li><strong>The 6-Step Method:</strong> Become an artist in 6 simple steps</li>
+                                <li><strong>Built-in Practice Space:</strong> Shade and practice right on the page</li>
+                                <li><strong>Double the Fun:</strong> Add some colour to your masterpiece!</li>
+                                <li><strong>Awesome Extras:</strong> Free bonus colouring pages and more</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://amzn.eu/d/0aOUGahP" target="_blank" class="btn btn-warning full-width text-center" style="font-size: 1.2rem; display: block; padding: 20px;">Buy now on Amazon</a>
+                        <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 15px;">Secure checkout via Amazon UK</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Making Learning to Draw Feel Like Play -->
+        <section class="product-extra-info bg-teal text-white section-padding" style="position: relative; overflow: hidden; padding-bottom: 120px;">
+            <div class="container narrow text-center" style="position: relative; z-index: 2;">
+                <h2 class="section-label text-gold">Learn to draw animals in 6 simple steps</h2>
+                <h3 class="big-statement text-white" style="font-size: 2.5rem;">Making Learning to Draw Feel Like Play</h3>
+                
+                <p class="body-text text-white-opacity" style="font-size: 1.25rem;">At Chunky Badger, we believe every child has the potential to be a budding artist. Our books are designed for beginners and parents looking for creative, screen-free fun.</p>
+                
+                <p class="body-text text-white-opacity" style="font-size: 1.25rem;">We don't just show you the finished picture; we guide you through the process. Our <strong>"6 Simple Steps"</strong> method breaks down complex subjects into easy-to-follow shapes. We provide plenty of space to practice, shade, and get creative right inside each book.</p>
+                
+                <h4 class="text-gold" style="font-size: 1.5rem; margin-top: 30px; line-height: 1.4;">It's not just a book; it's an art adventure that builds confidence with every page turn!</h4>
+            </div>
+            <!-- Floating Animals -->
+            <!-- Note: Reusing these playful animals to maintain the brand theme, can be updated later -->
+            <img src="Pictures/Animals/Fox.png" class="decor-animal" style="bottom: 0px; left: 15%; width: 140px; transform: rotate(-5deg); z-index: 1;">
+            <img src="Pictures/Animals/Robin.png" class="decor-animal" style="bottom: 20px; right: 25%; width: 100px; transform: rotate(10deg); z-index: 1;">
+            <img src="Pictures/Animals/Otter.png" class="decor-animal" style="bottom: 0px; right: 10%; width: 130px; transform: rotate(5deg); z-index: 1;">
+        </section>
+
+        <!-- Why Parents Love Our Books -->
+        <section id="parents-love" class="section-padding text-dark" style="background: linear-gradient(rgba(249, 249, 249, 0.5), rgba(249, 249, 249, 0.5)), url('Pictures/Generic/Mother and child/CB-mother-and-child.jpg') center/cover no-repeat; position: relative; overflow: hidden;">
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="parents-love-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
+                    
+                    <!-- Column 1: Heading -->
+                    <div class="parents-love-heading reveal">
+                        <h2 class="big-statement text-berry" style="font-size: 2.5rem; line-height: 1.2;">Why parents love our books</h2>
+                        <ul class="styled-list text-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                            <li>Builds confidence</li>
+                            <li>Improves fine motor skills</li>
+                            <li>All you need is a pencil, eraser and coloured pencils</li>
+                        </ul>
+                        <a href="https://amzn.eu/d/0aOUGahP" target="_blank" class="btn btn-primary btn-sm">Order Your Copy</a>
+                    </div>
+
+                    <!-- Column 2: Features with Icons -->
+                    <div class="parents-love-features reveal delay-200" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
+                        <div class="feature-item" style="background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <img src="Pictures/Animals/Dog.png" alt="Dog icon" style="height: 80px; margin: 0 auto 15px; object-fit: contain;">
+                            <h4 class="text-teal" style="font-size: 1.1rem; margin-bottom: 10px;"><span class="text-berry">✓</span> Easy to follow</h4>
+                            <p class="body-text" style="font-size: 0.95rem; line-height: 1.4;">Every animal is broken down into 6 visual steps.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <img src="Pictures/Animals/Elephant.png" alt="Elephant icon" style="height: 80px; margin: 0 auto 15px; object-fit: contain;">
+                            <h4 class="text-teal" style="font-size: 1.1rem; margin-bottom: 10px;"><span class="text-berry">✓</span> All-in-one</h4>
+                            <p class="body-text" style="font-size: 0.95rem; line-height: 1.4;">With plenty of space to practise inside the book, kids can draw as they go with no extra paper needed.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <img src="Pictures/Animals/Lion.png" alt="Lion icon" style="height: 80px; margin: 0 auto 15px; object-fit: contain;">
+                            <h4 class="text-teal" style="font-size: 1.1rem; margin-bottom: 10px;"><span class="text-berry">✓</span> Screen-free fun</h4>
+                            <p class="body-text" style="font-size: 0.95rem; line-height: 1.4;">Perfect for quiet time and rainy days.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Embark on a Wild Drawing Safari -->
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="text-center reveal" style="margin-bottom: 50px;">
+                    <h2 class="big-statement text-berry">Embark on a Wild Drawing Safari!</h2>
+                    <p class="body-text text-dark" style="max-width: 600px; margin: 0 auto;">Learn to draw the big safari stars, powerful predators, and gentle giants.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <!-- African Card 1 -->
+                    <div class="habitat-card text-center reveal">
+                        <img src="Pictures/Generic/Africa/Learn to draw the big safari stars.jpg" alt="Safari Stars" style="border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); margin-bottom: 25px; transform: rotate(-2deg); transition: transform 0.3s;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'" onmouseout="this.style.transform='rotate(-2deg)'">
+                        <h3 class="text-teal" style="font-size: 1.8rem; margin-bottom: 10px;">Learn to draw the big safari stars</h3>
+                        <p class="body-text text-dark">From towering Giraffes to powerful lions.</p>
+                    </div>
+                    
+                    <!-- African Card 2 -->
+                    <div class="habitat-card text-center reveal delay-200">
+                        <img src="Pictures/Generic/Africa/Learn-to-draw-plains-animals2.jpg" alt="African Plains Animals" style="border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); margin-bottom: 25px; transform: rotate(1deg); transition: transform 0.3s;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'" onmouseout="this.style.transform='rotate(1deg)'">
+                        <h3 class="text-teal" style="font-size: 1.8rem; margin-bottom: 10px;">Learn to draw plains animals</h3>
+                        <p class="body-text text-dark">Playful Springboks, Impalas, and the majestic Elephant.</p>
+                    </div>
+                    
+                    <!-- African Card 3 -->
+                    <div class="habitat-card text-center reveal delay-400">
+                        <img src="Pictures/Generic/Africa/Learn-to-draw-unique-creatures.jpg" alt="Unique African Creatures" style="border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); margin-bottom: 25px; transform: rotate(-1deg); transition: transform 0.3s;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'" onmouseout="this.style.transform='rotate(-1deg)'">
+                        <h3 class="text-teal" style="font-size: 1.8rem; margin-bottom: 10px;">Learn to draw unique creatures</h3>
+                        <p class="body-text text-dark">Follow the 6 steps to draw the perfect Meerkat, Fennec Fox, and even a Pangolin! + over 40 animals and pages to colour.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscribe Callout -->
+        <section class="section-padding bg-gradient-abstract">
+            <div class="container">
+                <div style="background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); padding: 50px 30px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); text-align: center; position: relative;">
+                    <img src="Pictures/Animals/Bee.png" alt="Bee icon" style="position: absolute; top: -50px; right: 8%; width: 120px; transform: rotate(15deg); filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));">
+                    <img src="Pictures/Animals/Dog.png" alt="Dog icon" style="position: absolute; bottom: -30px; left: 5%; width: 90px; transform: rotate(-10deg);">
+                    
+                    <h2 class="section-label text-berry">🎨 FREE 5-Day Learn-to-Draw Challenge</h2>
+                    <h3 class="big-statement text-berry" style="font-size: 2.2rem;">Join the Chunky Badger Drawing Club!</h3>
+                    <p class="body-text text-dark" style="max-width: 650px; margin: 0 auto 30px;">Receive 5 exclusive step-by-step animal drawing sheets designed especially for children aged 4–9. Perfect for rainy days, quiet time, or creative family fun.</p>
+                    <a href="index.html#email-signup" class="btn btn-primary bounce-hover" style="padding: 15px 40px;">Get Your Free Drawing Pack</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Similar Books -->
+        <section class="similar-products bg-cream section-padding text-center">
+            <div class="container">
+                <h2 class="big-statement text-berry mb-4">You might also like</h2>
+                <div class="coming-soon-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 350px)); justify-content: center; gap: 40px;">
+                    <!-- British Animals Card -->
+                    <div class="coming-card" style="box-shadow: 0 15px 40px rgba(0,0,0,0.08);">
+                        <div class="card-image" style="height: 300px; padding: 20px; background: white; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: center;">
+                            <img src="Pictures/Mockups/UK/Cover/British Animals Over Mockup-no-shadow-transparent.png" alt="British Animals" style="max-height: 90%; object-fit: contain; filter: drop-shadow(-15px 25px 20px rgba(0,0,0,0.15)); transform: translateY(-5px);">
+                        </div>
+                        <div class="card-content" style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h4 style="font-size: 1.4rem;">Learn to Draw: British Animals</h4>
+                                <p style="margin-bottom: 20px;">Woodland Creatures, Farm Favourites, and Seaside Friends!</p>
+                            </div>
+                            <a href="product-british-animals.html" class="btn btn-primary btn-sm" style="align-self: flex-start;">More Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Callout Banner (Above Footer) -->
+        <section class="bg-vintage-berry text-white text-center" style="padding: 60px 20px;">
+            <div class="container narrow">
+                <h3 class="big-statement text-gold" style="font-size: 2rem;">Got Questions?</h3>
+                <p class="body-text text-white-opacity" style="font-size: 1.1rem; margin-bottom: 30px;">Wondering what supplies your child needs, or if it's right for their age? Check out our Frequently Asked Questions.</p>
+                <a href="faq.html" class="btn btn-white" style="border: 2px solid white; color: var(--vintage-berry); font-weight: 700;">Read our FAQs</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer bg-black text-white">
+        <div class="container text-center">
+            <div class="footer-logo mb-4">
+                <img src="Pictures/Logo/ChunkyBadger-Peach-landscape.png" alt="Chunky Badger" class="logo-img centered-logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html#hero">Home</a>
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQs</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-seo-links mt-4">
+                <a href="how-to-draw-books.html" style="color: rgba(255, 255, 255, 0.4); font-size: 0.8rem; margin: 0 10px;">How to Draw Books</a>
+                <a href="kids-how-to-draw-books.html" style="color: rgba(255, 255, 255, 0.4); font-size: 0.8rem; margin: 0 10px;">Kids How to Draw Books</a>
+                <a href="how-to-draw-animals-book-for-kids.html" style="color: rgba(255, 255, 255, 0.4); font-size: 0.8rem; margin: 0 10px;">How to Draw Animals Book for Kids</a>
+                <a href="how-to-draw-wildlife-book-for-kids.html" style="color: rgba(255, 255, 255, 0.4); font-size: 0.8rem; margin: 0 10px;">How to Draw Wildlife Book for Kids</a>
+            </div>
+            <div class="footer-copyright mt-4" style="margin-top: 40px; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
+                <span>&copy; Chunky Badger 2026. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Product Page Scripts -->
+    <script>
+        function changeImage(element, src, isCover) {
+            // Update active state
+            document.querySelectorAll('.thumb').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+            
+            // Generate crossfade transition
+            const mainImg = document.getElementById('main-product-image');
+            const container = document.querySelector('.main-image-container');
+            mainImg.style.opacity = '0.5';
+            setTimeout(() => {
+                mainImg.src = src;
+                // Add drop shadow only for the cover image
+                if (isCover) {
+                    mainImg.style.filter = "drop-shadow(-15px 25px 20px rgba(0,0,0,0.15))";
+                    mainImg.style.transform = "scale(0.95) translateY(-10px)";
+                    container.style.backgroundColor = "white";
+                } else {
+                    mainImg.style.filter = "none";
+                    mainImg.style.transform = "scale(1.02)"; // Slight zoom for interior spreads
+                    container.style.backgroundColor = "white"; // White background for filled spreads
+                }
+                mainImg.style.opacity = '1';
+            }, 150);
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
