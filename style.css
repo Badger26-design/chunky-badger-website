@@ -102,6 +102,20 @@ h6 {
     max-width: 600px;
 }
 
+.hero-age-tag {
+    display: inline-flex;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 50px;
+}
+
 .section-label {
     font-size: 1rem;
     text-transform: uppercase;
