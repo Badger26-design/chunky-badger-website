@@ -1042,6 +1042,40 @@ h6 {
     .form-intro {
         text-align: left !important;
     }
+
+    /* Books Section Vertical Layout on Mobile */
+    .books-scroll-wrapper {
+        height: auto !important;
+        margin-top: 30px;
+    }
+
+    .books-sticky-container {
+        position: relative !important;
+        top: auto !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        display: block !important;
+    }
+
+    .books-slider-track {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 60px;
+        width: 100% !important;
+        transform: none !important;
+    }
+
+    .book-slide {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        padding: 0 !important;
+        min-width: 0 !important;
+    }
+
+    .books-slider-nav {
+        display: none !important;
+    }
 }
 
 @media (max-width: 768px) {

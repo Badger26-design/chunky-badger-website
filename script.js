@@ -158,6 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (booksWrapper && booksTrack) {
         window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 960) {
+                booksTrack.style.transform = '';
+                return;
+            }
             const rect = booksWrapper.getBoundingClientRect();
             // Match the 10vh top and 80vh height CSS definition
             const stickyTop = window.innerHeight * 0.1; 
