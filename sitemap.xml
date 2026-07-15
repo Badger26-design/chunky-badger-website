@@ -2,87 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://www.chunkybadger.com/</loc>
-        <lastmod>2026-06-29</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.chunkybadger.com/privacy-policy.html</loc>
-        <lastmod>2026-02-09</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/faq.html</loc>
-        <lastmod>2026-06-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/about.html</loc>
-        <lastmod>2026-06-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/learn-to-draw-books.html</loc>
-        <lastmod>2026-02-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/kids-how-to-draw.html</loc>
-        <lastmod>2026-02-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/animal-drawing-book.html</loc>
-        <lastmod>2026-02-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/how-to-draw-animals-book-for-kids.html</loc>
-        <lastmod>2026-06-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/how-to-draw-books.html</loc>
-        <lastmod>2026-06-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/how-to-draw-wildlife-book-for-kids.html</loc>
-        <lastmod>2026-06-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/kids-how-to-draw-books.html</loc>
-        <lastmod>2026-06-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://www.chunkybadger.com/product-british-animals.html</loc>
-        <lastmod>2026-06-29</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.chunkybadger.com/product-african-animals.html</loc>
-        <lastmod>2026-06-29</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.chunkybadger.com/blog.html</loc>
-        <lastmod>2026-06-29</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/about.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/faq.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/how-to-draw-books.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/kids-how-to-draw-books.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/how-to-draw-animals.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/how-to-draw-animals-book-for-kids.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/how-to-draw-wildlife-book-for-kids.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/learn-to-draw-animals-books-for-kids.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/learn-to-draw-books.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/animal-drawing-book.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.chunkybadger.com/kids-how-to-draw.html</loc>
+        <lastmod>2026-07-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.chunkybadger.com/blog/how-to-draw-a-fox-for-kids.html</loc>
@@ -109,15 +115,9 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.chunkybadger.com/how-to-draw-animals.html</loc>
-        <lastmod>2026-07-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.chunkybadger.com/learn-to-draw-animals-books-for-kids.html</loc>
-        <lastmod>2026-07-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.chunkybadger.com/privacy-policy.html</loc>
+        <lastmod>2026-02-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 </urlset>
