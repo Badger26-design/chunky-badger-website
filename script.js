@@ -163,9 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             const rect = booksWrapper.getBoundingClientRect();
-            // Match the 10vh top and 80vh height CSS definition
-            const stickyTop = window.innerHeight * 0.1; 
-            const stickyContainerHeight = window.innerHeight * 0.8; 
+            // Match the 5vh top and 90vh height CSS definition
+            const stickyTop = window.innerHeight * 0.05; 
+            const stickyContainerHeight = window.innerHeight * 0.9; 
             
             // Calculate how far we've scrolled past the sticky trigger point
             const scrollDistance = Math.max(0, stickyTop - rect.top);
@@ -196,8 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = bookNumber - 1;
             const targetProgress = index / (dots.length - 1);
             
-            const stickyTop = window.innerHeight * 0.1;
-            const stickyContainerHeight = window.innerHeight * 0.8;
+            const stickyTop = window.innerHeight * 0.05;
+            const stickyContainerHeight = window.innerHeight * 0.9;
             const maxScrollable = booksWrapper.offsetHeight - stickyContainerHeight;
             const wrapperDocTop = window.scrollY + booksWrapper.getBoundingClientRect().top;
             
