@@ -42,14 +42,14 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 body {
     font-family: var(--font-body);
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
     background-color: var(--bg-white);
 }
 
@@ -1534,3 +1534,29 @@ h6 {
         width: 100%;
     }
 }
+
+/* ── Blog Post Sticky Sidebar ── */
+.post-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 60px;
+    align-items: start;
+}
+
+.post-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+@media (max-width: 960px) {
+    .post-layout {
+        grid-template-columns: 1fr;
+    }
+    .post-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+

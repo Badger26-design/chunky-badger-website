@@ -97,7 +97,7 @@
         "datePublished": "2026-06-29"
     }
     </script>
-    <link rel="stylesheet" href="../style.css?v=blog-post-1">
+    <link rel="stylesheet" href="../style.css?v=blog-post-1b">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,6 +109,10 @@
         inject();
     </script>
     <style>
+        /* ── Override: fix overflow-x so position:sticky works ── */
+        html { overflow-x: clip !important; }
+        body { overflow-x: clip !important; }
+
         /* ── Blog Post Styles ── */
 
         .post-hero {
