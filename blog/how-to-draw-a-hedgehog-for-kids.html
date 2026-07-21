@@ -453,6 +453,14 @@
             position: sticky;
             top: 100px;
             align-self: start;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .post-sidebar::-webkit-scrollbar {
+            display: none;
         }
 
         .sidebar-card {
