@@ -1,3 +1,6 @@
 .DS_Store
 .env
 .bg_env/
+
+# Holds an Antigravity-issued Stitch token. Stays on disk, never in the repo.
+mcp_config.json
