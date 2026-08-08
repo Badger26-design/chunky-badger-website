@@ -17,6 +17,41 @@
             "source": "/index.html",
             "destination": "/",
             "permanent": true
+        },
+        {
+            "source": "/kids-how-to-draw-books.html",
+            "destination": "/how-to-draw-books.html",
+            "permanent": true
+        },
+        {
+            "source": "/learn-to-draw-books.html",
+            "destination": "/how-to-draw-books.html",
+            "permanent": true
+        },
+        {
+            "source": "/kids-how-to-draw.html",
+            "destination": "/how-to-draw-books.html",
+            "permanent": true
+        },
+        {
+            "source": "/how-to-draw-wildlife-book-for-kids.html",
+            "destination": "/how-to-draw-animals.html",
+            "permanent": true
+        },
+        {
+            "source": "/animal-drawing-book.html",
+            "destination": "/how-to-draw-animals.html",
+            "permanent": true
+        },
+        {
+            "source": "/learn-to-draw-animals-books-for-kids.html",
+            "destination": "/how-to-draw-animals.html",
+            "permanent": true
+        },
+        {
+            "source": "/how-to-draw-animals-book-for-kids.html",
+            "destination": "/how-to-draw-animals.html",
+            "permanent": true
         }
     ],
     "rewrites": [
