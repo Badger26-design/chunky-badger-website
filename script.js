@@ -151,64 +151,79 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Books Slider Logic (Vertical to Horizontal)
-    const booksWrapper = document.getElementById('books-scroll-wrapper');
-    const booksTrack = document.getElementById('books-slider-track');
-    const dots = document.querySelectorAll('.slider-dot');
-    
-    if (booksWrapper && booksTrack) {
-        window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 960) {
-                booksTrack.style.transform = '';
-                return;
-            }
-            const rect = booksWrapper.getBoundingClientRect();
-            // Match the 5vh top and 90vh height CSS definition
-            const stickyTop = window.innerHeight * 0.05; 
-            const stickyContainerHeight = window.innerHeight * 0.9; 
-            
-            // Calculate how far we've scrolled past the sticky trigger point
-            const scrollDistance = Math.max(0, stickyTop - rect.top);
-            
-            // The total scrollable distance within the sticky state
-            const maxScrollable = booksWrapper.offsetHeight - stickyContainerHeight;
-            
-            // Normalize progress between 0 and 1
-            let progress = scrollDistance / maxScrollable;
-            progress = Math.max(0, Math.min(1, progress));
-            
-            // Translate the track horizontally
-            const maxTranslate = booksTrack.scrollWidth - booksTrack.clientWidth;
-            booksTrack.style.transform = `translateX(-${progress * maxTranslate}px)`;
-            
-            // Update the active dot
-            if(dots.length > 0) {
-                const activeIndex = Math.round(progress * (dots.length - 1));
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === activeIndex);
-                });
-            }
-        });
-        
-        // Update scrollToBook to scroll the page vertically to the right spot
-        window.scrollToBook = function(bookNumber) {
-            if(dots.length === 0) return;
-            const index = bookNumber - 1;
-            const targetProgress = index / (dots.length - 1);
-            
-            const stickyTop = window.innerHeight * 0.05;
-            const stickyContainerHeight = window.innerHeight * 0.9;
-            const maxScrollable = booksWrapper.offsetHeight - stickyContainerHeight;
-            const wrapperDocTop = window.scrollY + booksWrapper.getBoundingClientRect().top;
-            
-            const targetScrollY = wrapperDocTop - stickyTop + (targetProgress * maxScrollable);
-            
-            window.scrollTo({
-                top: targetScrollY,
-                behavior: 'smooth'
+    // --- Dynamic Our Books Central Catalog Data & Renderer ---
+    const BOOKS_DATA = [
+        {
+            id: 'british-animals',
+            label: 'British Animals',
+            title: 'Learn to Draw:<br><span class="text-gold">British Animals</span>',
+            imageSrc: 'Pictures/Mockups/UK/Cover/British%20Animals%20Over%20Mockup-no-shadow-transparent.png',
+            imageAlt: 'Learn to Draw British Animals book cover mockup by Chunky Badger',
+            imageClass: '',
+            features: [
+                '<strong>45+ animals</strong> from woodland, farm &amp; seaside',
+                '<strong>6 simple steps</strong> per animal — no reading needed',
+                '<strong>Draw &amp; colour</strong> right inside the book'
+            ],
+            moreInfoUrl: 'product-british-animals.html',
+            amazonUrl: 'https://amzn.eu/d/0dFI2cpF',
+            delayClass: ''
+        },
+        {
+            id: 'african-animals',
+            label: 'African Animals',
+            title: 'Learn to Draw:<br><span class="text-gold">African Animals</span>',
+            imageSrc: 'Pictures/Figma/Images/Our%20Books/CB%20African%20Animals%20Front%20Cover%20mockup-cut.png',
+            imageAlt: 'Learn to Draw African Animals book cover mockup by Chunky Badger',
+            imageClass: 'product-card-image--african',
+            features: [
+                '<strong>40+ animals</strong> from savanna, jungle &amp; rivers',
+                '<strong>6 simple steps</strong> per animal — no reading needed',
+                '<strong>Draw &amp; colour</strong> right inside the book'
+            ],
+            moreInfoUrl: 'product-african-animals.html',
+            amazonUrl: 'https://amzn.eu/d/0aOUGahP',
+            delayClass: 'delay-200'
+        }
+    ];
+
+    function renderOurBooks() {
+        const bookGrids = document.querySelectorAll('[data-books-grid]');
+        if (!bookGrids.length) return;
+
+        const htmlContent = BOOKS_DATA.map(book => `
+                    <!-- Card: ${book.label} -->
+                    <div class="product-card reveal ${book.delayClass}">
+                        <div class="product-card-image ${book.imageClass}">
+                            <img src="${book.imageSrc}"
+                                alt="${book.imageAlt}">
+                        </div>
+                        <div class="product-card-body">
+                            <p class="product-card-label">${book.label}</p>
+                            <h3 class="product-card-title">${book.title}</h3>
+                            <ul class="styled-list white-check product-card-list">
+                                ${book.features.map(f => `<li>${f}</li>`).join('\n                                ')}
+                            </ul>
+                            <div class="product-card-actions">
+                                <a href="${book.moreInfoUrl}" class="btn more-info-btn">More Info</a>
+                                <a href="${book.amazonUrl}" target="_blank" class="btn btn-warning">Buy on Amazon</a>
+                            </div>
+                        </div>
+                    </div>`).join('\n\n');
+
+        bookGrids.forEach(grid => {
+            grid.innerHTML = htmlContent;
+            grid.querySelectorAll('.reveal').forEach(el => {
+                if (typeof observer !== 'undefined') {
+                    observer.observe(el);
+                } else {
+                    el.classList.add('active');
+                }
             });
-        };
+        });
     }
+
+    renderOurBooks();
 
     // --- Subtle Cookie Bar ---
     const cookieName = 'cb_cookies_accepted';
