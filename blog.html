@@ -453,6 +453,9 @@
             .blog-card:first-child {
                 grid-column: span 1;
             }
+            .blog-card:first-child .blog-card-thumb {
+                height: 200px;
+            }
             .blog-hero-animals {
                 gap: 15px;
             }
@@ -535,10 +538,8 @@
 
                     <!-- Card 1 — FEATURED -->
                     <a href="blog/how-to-draw-a-hedgehog-for-kids.html" class="blog-card reveal" data-category="guides" aria-label="Read: How to Draw a Hedgehog for Kids | Easy Guide">
-                        <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1a3a3a 0%, #218380 100%);">
-                            <div class="thumb-placeholder" style="width: 100%; height: 100%;">
-                                <img src="images/blog/how-to-draw-a-hedgehog-header.png" alt="How to Draw a Hedgehog for Kids header graphic" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
+                        <div class="blog-card-thumb" style="background: #1a3a3a;">
+                            <img src="images/blog/how-to-draw-a-hedgehog-header.png" alt="How to Draw a Hedgehog for Kids header graphic" class="blog-card-thumb-bg" style="object-fit: cover; object-position: center;">
                             <span class="blog-card-category cat-guides">How-to Guide</span>
                             <span class="coming-soon-badge" style="background: #218380; color: white;">✨ Featured Guide</span>
                         </div>
